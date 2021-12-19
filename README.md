@@ -189,9 +189,55 @@ String toString() => '$runtimeType($bar, $baz, $quux)'
 
 "There should never be more than one reason for a class to change". It's important because if there are many functionality in one class and on modifying a piece of it, it can be difficult to understand how that will affect other dependent modules in your codebase.
 
+**Bad:**
+
+```dart
+class UserAuth{
+ late String user;
+
+  UserAuth({this.user});
+
+   changeUserProfile(settings) {
+    if (verifyUser()) {
+      // ...
+    }
+  }
+
+  verifyUser(){
+          // ...
+  }
+}
+```
+
+**Good:**
+
 ```dart
 
+class UserAuth{
+ late String user;
+
+  UserAuth({this.user});
+
+  verifyUser(){
+          // ...
+  }
+}
+
+class UserSettings{
+  late String? user;
+ late UserAuth? auth = UserAuth();
+
+  UserSettings({this.user, this.auth})
+
+  changeSettings(settings) {
+    if (auth.verifyUser()) {
+      // ...
+    }
+  }
+}
 ```
+
+### Open/Closed Principle (OCP)
 
 ## **Formating**
 
@@ -669,4 +715,76 @@ Generally the closure passed to setState should include all the code that change
 
 ```dart
 setState(() { /* The animation ticked. We use the animation's value in the build method. */ });
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+## **Error Handling**
+
+Modern languages, including Dart, support exception throwing and catching.
+
+### Don't ignore errors
+
+Example
+
+**Bad:**
+
+```dart
+try {
+  functionThrowsError();
+} catch (error) {
+  print(error);
+}
+```
+
+**Good:**
+
+```dart
+try {
+  functionThrowsError();
+} catch (error) {
+  // One option (more noisy than console.log):
+  print(error);
+  // Another option:
+  notifyUserOfError(error);
+  // Another option:
+  reportErrorToService(error);
+  // OR do all three!
+}
+
+```
+
+### Rejected Futures
+
+Example:
+
+**Bad:**
+
+```dart
+getSomething()
+  .then(data => {
+    functionThatThrowError(data);
+  })
+  .catch(error => {
+    print(error);
+  });
+```
+
+**Good:**
+
+```dart
+getSomething()
+  .then(data => {
+    functionThatThrowError(data);
+  })
+  .catch(error => {
+    // One option (more noisy than console.log):
+    print(error);
+    // Another option:
+    notifyUserOfError(error);
+    // Another option:
+    reportErrorToService(error);
+    // OR do all three!
+  });
+
 ```

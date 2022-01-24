@@ -183,7 +183,7 @@ String toString() => '$runtimeType($bar, $baz, $quux)'
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Soild**
+## **Solid**
 
 ### Single Responsibility Principle (SRP)
 

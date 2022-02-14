@@ -18,12 +18,20 @@ Clean Code concepts for Flutter/Dart.
 
 ## Introduction
 
-![Clean code is the one that is easy to understand and most importantly easy to change.](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191216192939/Ratio-of-Time-Spent-Reading-Code-Versus-Writing.png)
+Code is clean if it can be understood easily – by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.
+</br>
+</br></br>
+Clean code is the one that is easy to understand and most importantly easy to change.
+![pic](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191216192939/Ratio-of-Time-Spent-Reading-Code-Versus-Writing.png)
 
 Software engineering principles, from Robert C. Martin's book
 [_Clean Code_](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
 adapted for Dart.
 
+### Summary:
+![chart](https://user-images.githubusercontent.com/35653122/51113192-86f8d880-1801-11e9-90ad-88dd58854a18.png)
+</br>
+</br>
 ## **Variable**
 
 ### Begin global constant names with prefix "k"

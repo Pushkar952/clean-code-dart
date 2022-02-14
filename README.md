@@ -5,8 +5,8 @@ Clean Code concepts for Flutter/Dart.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Naming](#naming)
-3. [Coding Patterns](#functions)
+2. [Naming/Variable](#variable)
+3. [Coding Patterns](#coding-patterns)
 4. [SOLID](SOLID.md)
 5. [Conventions](#conventions)
 6. [Formatting](#formatting)
@@ -90,7 +90,7 @@ Do not use debugging variables or methods (or classes) in the production code.
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Coding Patters**
+## **Coding Patterns**
 
 ### Use asserts liberally to detect contract violations and verify invariants
 
@@ -183,7 +183,7 @@ String toString() => '$runtimeType($bar, $baz, $quux)'
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Formating**
+## **Formatting**
 
 ### Constructor syntax
 

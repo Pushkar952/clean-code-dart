@@ -8,12 +8,12 @@ Clean Code concepts for Flutter/Dart.
 2. [Naming](#naming)
 3. [Coding Patterns](#functions)
 4. [SOLID](SOLID.md)
-5. [Conventions]
-6. [Formatting](#fomatting)
+5. [Conventions](#conventions)
+6. [Formatting](#formatting)
 7. [Testing](#testing)
 8. [Pacakages And Plugin](#packages)
-9. [Error Handling](#error-handling)
-10. [Comments](#comments)
+9. [Comments](#comments)
+10. [Error Handling](#error-handling)
 
 ## Introduction
 

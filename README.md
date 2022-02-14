@@ -7,8 +7,8 @@ Clean Code concepts for Flutter/Dart.
 1. [Introduction](#introduction)
 2. [Naming](#naming)
 3. [Coding Patterns](#functions)
-4. [SOLID](#solid)
-5. [Conventions] (#conventions)
+4. [SOLID](SOLID.md)
+5. [Conventions]
 6. [Formatting](#fomatting)
 7. [Testing](#testing)
 8. [Pacakages And Plugin](#packages)
@@ -182,62 +182,6 @@ String toString() => '$runtimeType($bar, $baz, $quux)'
 ```
 
 **[⬆ back to top](#table-of-contents)**
-
-## **Solid**
-
-### Single Responsibility Principle (SRP)
-
-"There should never be more than one reason for a class to change". It's important because if there are many functionality in one class and on modifying a piece of it, it can be difficult to understand how that will affect other dependent modules in your codebase.
-
-**Bad:**
-
-```dart
-class UserAuth{
- late String user;
-
-  UserAuth({this.user});
-
-   changeUserProfile(settings) {
-    if (verifyUser()) {
-      // ...
-    }
-  }
-
-  verifyUser(){
-          // ...
-  }
-}
-```
-
-**Good:**
-
-```dart
-
-class UserAuth{
- late String user;
-
-  UserAuth({this.user});
-
-  verifyUser(){
-          // ...
-  }
-}
-
-class UserSettings{
-  late String? user;
- late UserAuth? auth = UserAuth();
-
-  UserSettings({this.user, this.auth})
-
-  changeSettings(settings) {
-    if (auth.verifyUser()) {
-      // ...
-    }
-  }
-}
-```
-
-### Open/Closed Principle (OCP)
 
 ## **Formating**
 

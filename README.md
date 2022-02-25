@@ -33,6 +33,8 @@ adapted for Dart.
 </br>
 </br>
 
+To dig more into dart, you can check out [dart official documentation](https://dart.dev/guides/language/effective-dart/usage) too.
+
 
 <!-- **[⬆ back to top](#table-of-contents)** -->
 

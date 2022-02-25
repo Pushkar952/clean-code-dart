@@ -9,7 +9,7 @@ Clean Code concepts for Flutter/Dart.
 3. [Coding Patterns and catching bugs early](coding_patterns.md)
 4. [Comments](comments.md)
 5. [Formatting](formatting.md)
-6. [Error Handling](#error_handling.md)
+6. [Error Handling](error_handling.md)
 7. [SOLID](SOLID.md)
 8. [Testing](#testing)
 9. [Packages And Plugin](#packages)

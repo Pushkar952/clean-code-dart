@@ -14,8 +14,6 @@ Clean Code concepts for Flutter/Dart.
 8. [Testing](#testing)
 9. [Packages And Plugin](#packages)
 
-
-
 ## Introduction
 
 Code is clean if it can be understood easily – by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.
@@ -29,9 +27,11 @@ Software engineering principles, from Robert C. Martin's book
 adapted for Dart.
 
 ### Summary:
+
 ![chart](https://user-images.githubusercontent.com/35653122/51113192-86f8d880-1801-11e9-90ad-88dd58854a18.png)
 </br>
 </br>
+
 ## **Variable**
 
 ### Begin global constant names with prefix "k"
@@ -46,9 +46,42 @@ const Color _kBarrierColor = Colors.black54;
 
 However, where possible avoid global constants. Rather than kDefaultButtonColor, consider Button.defaultColor. If necessary, consider creating a class with a private constructor to hold relevant constants. It’s not necessary to add the k prefix to non-global constants.
 
+```dart
+class Button{
+   static const defaultColor = Colors.black54;
+}
+Button.defaultColor;
+```
+
 ### Avoid abbreviations
 
 Unless the abbreviation is more recognizable than the expansion (e.g. XML, HTTP, JSON), expand abbreviations when selecting a name for an identifier. In general, avoid one-character names unless one character is idiomatic (for example, prefer index over i, but prefer x over horizontalPosition)
+
+**Good:**
+
+```dart
+for(int i = 0; i < 5; i++){
+   for(int j = 0; j < 5; j++){
+
+   }
+}
+
+double latitude = 50.0;
+double longitude = 50.0;
+```
+
+**Bad:**
+
+```dart
+for(int index = 0; index < 5; index++){
+  for(int innerIndex = 0; innerIndex < 5; innerIndex++){
+
+  }
+}
+
+double lat = 50.0;
+double long = 50.0;
+```
 
 ### Avoid anonymous parameter names
 
@@ -63,7 +96,7 @@ onTapDown: (TapDownDetails details) { print('hello!'); },
 **Bad:**
 
 ```dart
-onTapUp: (_) { print('good bye'); }, // BAD
+onTapDown: (_) { print('good bye'); }, // BAD
 ```
 
 ### Naming rules for typedefs and function variables
@@ -82,8 +115,23 @@ Prefer compound words over "cute" spellings to avoid conflicts with reserved wor
 ### Capitalize identifiers consistent with their spelling
 
 If a word is correctly spelled (according to our sources of truth as described in the previous section) as a single word, then it should not have any inner capitalization or spaces.
-For examples, prefer toolbar, scrollbar, but appBar ('app bar' in documentation), tabBar ('tab bar' in documentation).
-Similarly, prefer offstage rather than offStage.
+
+**Good:**
+
+```dart
+String toolbar;
+String scrollbar;
+String offstage;
+```
+
+**Bad:**
+
+```dart
+String toolBar;
+String scrollBar;
+String offStage;
+```
+
 Avoid starting class names with iOS since that would have to capitalize as Ios which is not how that is spelled. (Use "Cupertino" or "UiKit" instead.)
 
 ### Boolean Variables
@@ -91,6 +139,22 @@ Avoid starting class names with iOS since that would have to capitalize as Ios w
 Name your boolean variables in positive ways, such as "enabled" or "visible", even if the default value is true.
 
 This is because, when you have a property or argument named "disabled" or "hidden", it leads to code such as input.disabled = false or widget.hidden = false when you’re trying to enable or show the widget, which is very confusing.
+
+**Good:**
+
+```dart
+if (socket.isConnected && database.hasData) {
+  socket.write(database.read());
+}
+```
+
+**Bad:**
+
+```dart
+if (!socket.isDisconnected && !database.isEmpty) {
+  socket.write(database.read());
+}
+```
 
 ### Variables and methods for debugging
 
@@ -153,7 +217,32 @@ const EdgeInsets.TRBL(0.0, 8.0, 0.0, 8.0);
 
 All variables and arguments are typed; avoid "dynamic" or "Object" in any case where you could figure out the actual type. Always specialize in generic types where possible. Explicitly type all list and map literals.
 This achieves two purposes: it verifies that the type that the compiler would infer matches the type you expect, and it makes the code self-documenting in the case where the type is not obvious (e.g. when calling anything other than a constructor).
+
+**Good:**
+
+```dart
+List<int> arr = [1,2,43,67,88]
+```
+
+**Bad:**
+
+```dart
+List<dynamic> arr = [1,2,43,67,88]
+```
+
 Always avoid "var". Use "dynamic" if you are being explicit that the type is unknown, but prefer "Object" and casting, as using dynamic disables all static checking.
+
+**Good:**
+
+```dart
+dynamic posts = await fetchPost()
+```
+
+**Bad:**
+
+```dart
+var posts = await fetchPost()
+```
 
 ### Avoid using the library and part of.
 
@@ -168,17 +257,38 @@ Numbers in tests and elsewhere should be clearly understandable. When the proven
 
 ```dart
 expect(rect.left, 4.24264068712);
+double area = 2 * 3.14 * radius;
 ```
 
 **Good:**
 
 ```dart
 expect(rect.left, 3.0 * math.sqrt(2));
+double area = 2 * pi * radius;
 ```
 
 ### Common boilerplates for operator == and hashCode
 
 We have many classes that override operator == and hashCode ("value classes"). To keep the code consistent, we can rely on the equitable package to avoid having boilerplate code
+
+```dart
+class Credentials extends Equatable {
+  const Credentials({required this.username, required this.password});
+
+  final String username;
+  final String password;
+}
+
+  const credentialsA = Credentials(username: 'Joe', password: 'password123');
+  const credentialsB = Credentials(username: 'Bob', password: 'password!');
+  const credentialsC = Credentials(username: 'Bob', password: 'password!');
+
+  print(credentialsA == credentialsA); // true
+  print(credentialsB == credentialsB); // true
+  print(credentialsC == credentialsC); // true
+  print(credentialsA == credentialsB); // false
+  print(credentialsB == credentialsC); // true
+```
 
 ### Override toString
 
@@ -198,7 +308,7 @@ String toString() => '$runtimeType($bar, $baz, $quux)'
 
 If you call super() in your initializer list, put a space between the constructor arguments' closing parenthesis and the colon. If there’s other things in the initializer list, align the super() call with the other arguments. Don’t call super if you have no arguments to pass up to the superclass.
 
-````dart
+```dart
 // one-line constructor example
 abstract class Foo extends StatelessWidget {
   Foo(this.bar, { Key key, this.child }) : super(key: key);
@@ -206,7 +316,7 @@ abstract class Foo extends StatelessWidget {
   final Widget child;
   // ...
 }
-```dart
+
 // fully expanded constructor example
 abstract class Foo extends StatelessWidget {
   Foo(
@@ -221,7 +331,7 @@ abstract class Foo extends StatelessWidget {
   final Widget child;
   // ...
 }
-````
+```
 
 ### Max line length of 80 characters
 

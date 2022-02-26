@@ -1,6 +1,11 @@
 # **Comments**
 </br>
 
+
+
+![comments](https://github.com/geekruchika/clean-code-dart/blob/main/assets/comment.png)
+
+
 ## Avoid useless documentation
 </br>
 Avoid checking in such documentation, because it is no better than no documentation but will prevent us from noticing that the identifier is not actually documented.

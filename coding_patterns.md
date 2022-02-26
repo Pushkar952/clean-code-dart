@@ -1,5 +1,7 @@
 ## **Coding Patterns**
 
+
+![Pattern](https://github.com/geekruchika/clean-code-dart/blob/main/assets/pattern.jpeg)
 ### Use asserts liberally to detect contract violations and verify invariants
 
 assert() allows us to be diligent about correctness without paying a performance penalty in release mode because Dart only evaluates asserts in debug mode.

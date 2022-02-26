@@ -4,7 +4,7 @@
 
 If you call super() in your initializer list, put a space between the constructor arguments' closing parenthesis and the colon. If there’s other things in the initializer list, align the super() call with the other arguments. Don’t call super if you have no arguments to pass up to the superclass.
 
-````dart
+```dart
 // one-line constructor example
 abstract class Foo extends StatelessWidget {
   Foo(this.bar, { Key key, this.child }) : super(key: key);
@@ -12,6 +12,7 @@ abstract class Foo extends StatelessWidget {
   final Widget child;
   // ...
 }
+```
 ```dart
 // fully expanded constructor example
 abstract class Foo extends StatelessWidget {
@@ -27,7 +28,7 @@ abstract class Foo extends StatelessWidget {
   final Widget child;
   // ...
 }
-````
+```
 
 ### Max line length of 80 characters
 

@@ -51,7 +51,34 @@ const EdgeInsets.TRBL(0.0, 8.0, 0.0, 8.0);
 ### Avoid using var
 
 All variables and arguments are typed; avoid "dynamic" or "Object" in any case where you could figure out the actual type. Always specialize in generic types where possible. Explicitly type all list and map literals.
+
+**Good:**
+
+```dart
+dynamic posts = await fetchPost()
+```
+
+**Bad:**
+
+```dart
+var posts = await fetchPost()
+```
+
 This achieves two purposes: it verifies that the type that the compiler would infer matches the type you expect, and it makes the code self-documenting in the case where the type is not obvious (e.g. when calling anything other than a constructor).
+
+**Good:**
+
+```dart
+List<int> arr = [1,2,43,67,88]
+```
+
+**Bad:**
+
+```dart
+List<dynamic> arr = [1,2,43,67,88]
+```
+
+
 Always avoid "var". Use "dynamic" if you are being explicit that the type is unknown, but prefer "Object" and casting, as using dynamic disables all static checking.
 
 ### Avoid using the library and part of.
@@ -67,17 +94,36 @@ Numbers in tests and elsewhere should be clearly understandable. When the proven
 
 ```dart
 expect(rect.left, 4.24264068712);
+double area = 2 * 3.14 * radius;
 ```
 
 **Good:**
 
 ```dart
 expect(rect.left, 3.0 * math.sqrt(2));
+double area = 2 * pi * radius;
 ```
 
 ### Common boilerplates for operator == and hashCode
 
 We have many classes that override operator == and hashCode ("value classes"). To keep the code consistent, we can rely on the equitable package to avoid having boilerplate code
+
+```dart
+class Credentials extends Equatable {
+  const Credentials({required this.username, required this.password});
+  final String username;
+  final String password;
+}
+  const credentialsA = Credentials(username: 'Joe', password: 'password123');
+  const credentialsB = Credentials(username: 'Bob', password: 'password!');
+  const credentialsC = Credentials(username: 'Bob', password: 'password!');
+  print(credentialsA == credentialsA); // true
+  print(credentialsB == credentialsB); // true
+  print(credentialsC == credentialsC); // true
+  print(credentialsA == credentialsB); // false
+  print(credentialsB == credentialsC); // true
+```
+
 
 ### Override toString
 

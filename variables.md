@@ -12,10 +12,40 @@ const Color _kBarrierColor = Colors.black54;
 
 However, where possible avoid global constants. Rather than kDefaultButtonColor, consider Button.defaultColor. If necessary, consider creating a class with a private constructor to hold relevant constants. It’s not necessary to add the k prefix to non-global constants.
 
+```dart
+class Button{
+   static const defaultColor = Colors.black54;
+}
+Button.defaultColor;
+```
+
+
 ### Avoid abbreviations
 
 Unless the abbreviation is more recognizable than the expansion (e.g. XML, HTTP, JSON), expand abbreviations when selecting a name for an identifier. In general, avoid one-character names unless one character is idiomatic (for example, prefer index over i, but prefer x over horizontalPosition)
 
+
+**Good:**
+
+```dart
+for(int i = 0; i < 5; i++){
+   for(int j = 0; j < 5; j++){
+   }
+}
+double latitude = 50.0;
+double longitude = 50.0;
+```
+
+**Bad:**
+
+```dart
+for(int index = 0; index < 5; index++){
+  for(int innerIndex = 0; innerIndex < 5; innerIndex++){
+  }
+}
+double lat = 50.0;
+double long = 50.0;
+```
 ### Avoid anonymous parameter names
 
 Provide full type information and names even for parameters that are otherwise unused.
@@ -29,7 +59,7 @@ onTapDown: (TapDownDetails details) { print('hello!'); },
 **Bad:**
 
 ```dart
-onTapUp: (_) { print('good bye'); }, // BAD
+onTapDown: (_) { print('good bye'); }, // BAD
 ```
 
 ### Naming rules for typedefs and function variables
@@ -48,15 +78,49 @@ Prefer compound words over "cute" spellings to avoid conflicts with reserved wor
 ### Capitalize identifiers consistent with their spelling
 
 If a word is correctly spelled (according to our sources of truth as described in the previous section) as a single word, then it should not have any inner capitalization or spaces.
+
+
 For examples, prefer toolbar, scrollbar, but appBar ('app bar' in documentation), tabBar ('tab bar' in documentation).
 Similarly, prefer offstage rather than offStage.
 Avoid starting class names with iOS since that would have to capitalize as Ios which is not how that is spelled. (Use "Cupertino" or "UiKit" instead.)
+
+**Good:**
+
+```dart
+String toolbar;
+String scrollbar;
+String offstage;
+```
+
+**Bad:**
+
+```dart
+String toolBar;
+String scrollBar;
+String offStage;
+```
 
 ### Boolean Variables
 
 Name your boolean variables in positive ways, such as "enabled" or "visible", even if the default value is true.
 
 This is because, when you have a property or argument named "disabled" or "hidden", it leads to code such as input.disabled = false or widget.hidden = false when you’re trying to enable or show the widget, which is very confusing.
+
+**Good:**
+
+```dart
+if (socket.isConnected && database.hasData) {
+  socket.write(database.read());
+}
+```
+
+**Bad:**
+
+```dart
+if (!socket.isDisconnected && !database.isEmpty) {
+  socket.write(database.read());
+}
+```
 
 ### Variables and methods for debugging
 

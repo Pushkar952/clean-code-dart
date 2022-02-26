@@ -5,16 +5,15 @@ Clean Code concepts for Flutter/Dart.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Naming/Variable](variables.md)
-3. [Coding Patterns and catching bugs early](coding_patterns.md)
-4. [Comments](comments.md)
-5. [Formatting](formatting.md)
-6. [Error Handling](error_handling.md)
-7. [SOLID](SOLID.md)
-8. [Testing](#testing)
-9. [Packages And Plugin](#packages)
-
-
+2.  [SOLID](SOLID.md)
+3. [Naming/Variable](variables.md)
+4. [Coding Patterns and catching bugs early](coding_patterns.md)
+5. [Comments](comments.md)
+6. [Formatting](formatting.md)
+7. [Error Handling](error_handling.md)
+8. [Error Handling Flutter](error_handling_flutter.md)
+9. [Testing](#testing)
+10. [Packages And Plugin](#packages)
 
 ## Introduction
 
@@ -29,6 +28,7 @@ Software engineering principles, from Robert C. Martin's book
 adapted for Dart.
 
 ### Summary:
+
 ![chart](https://user-images.githubusercontent.com/35653122/51113192-86f8d880-1801-11e9-90ad-88dd58854a18.png)
 </br>
 </br>

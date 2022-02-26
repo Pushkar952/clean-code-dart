@@ -1,5 +1,6 @@
 ## **Variable**
 
+![Variables](https://github.com/geekruchika/clean-code-dart/blob/main/assets/variable.png)
 ### Begin global constant names with prefix "k"
 
 **Examples:**

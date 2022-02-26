@@ -1,5 +1,7 @@
 ## **Future methods Error Handling**
 
+![error](https://github.com/geekruchika/clean-code-dart/blob/main/assets/error_flutter.jpeg)
+
 ``` 
 Future<int> myFunc(){
     ....

@@ -4,6 +4,8 @@ Modern languages, including Dart, support exception throwing and catching.
 
 Dart uses exceptions when an error occurs in your program. The following best practices apply to catching and throwing exceptions.
 
+![error](https://github.com/geekruchika/clean-code-dart/blob/main/assets/error_handling_dart.jpg)
+
 
 ### **AVOID catches without on clauses.**
 > Linter rule: avoid_catches_without_on_clauses

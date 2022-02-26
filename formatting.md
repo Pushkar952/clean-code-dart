@@ -1,5 +1,6 @@
 ## **Formatting**
 
+![formatting](https://github.com/geekruchika/clean-code-dart/blob/main/assets/formatting.png)
 ### Constructor syntax
 
 If you call super() in your initializer list, put a space between the constructor arguments' closing parenthesis and the colon. If there’s other things in the initializer list, align the super() call with the other arguments. Don’t call super if you have no arguments to pass up to the superclass.

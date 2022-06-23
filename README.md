@@ -11,8 +11,9 @@ Clean Code concepts for Flutter/Dart.
 5. [Formatting](formatting.md)
 6. [Error Handling](error_handling.md)
 7. [SOLID](SOLID.md)
-8. [Testing](#testing)
-9. [Packages And Plugin](#packages)
+8. [Performance Best Practices](performance.md)
+9. [Testing](#testing)
+10. [Packages And Plugin](#packages)
 
 
 
@@ -37,4 +38,3 @@ To dig more into dart, you can check out [dart official documentation](https://d
 
 
 <!-- **[⬆ back to top](#table-of-contents)** -->
-

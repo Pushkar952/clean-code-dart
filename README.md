@@ -5,15 +5,15 @@ Clean Code concepts for Flutter/Dart.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2.  [SOLID](SOLID.md)
+2. [SOLID](SOLID.md)
 3. [Naming/Variable](variables.md)
 4. [Coding Patterns](coding_patterns.md)
 5. [Comments](comments.md)
 6. [Formatting](formatting.md)
 7. [Error Handling](error_handling.md)
 8. [Error Handling Flutter](error_handling_flutter.md)
-9. [Testing](#testing)
-10. [Packages And Plugin](#packages)
+9. [Testing](testing.md)
+10. [Packages And Plugin](packages_plugin.md)
 
 ## Introduction
 
@@ -35,6 +35,4 @@ adapted for Dart.
 
 To dig more into dart, you can check out [dart official documentation](https://dart.dev/guides/language/effective-dart/usage) too.
 
-
 <!-- **[⬆ back to top](#table-of-contents)** -->
-

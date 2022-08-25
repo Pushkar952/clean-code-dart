@@ -14,6 +14,7 @@ Clean Code concepts for Flutter/Dart.
 8. [Error Handling Flutter](error_handling_flutter.md)
 9. [Testing](testing.md)
 10. [Packages And Plugin](packages_plugin.md)
+11. [Performance Best Practices](performance.md)
 
 ## Introduction
 
